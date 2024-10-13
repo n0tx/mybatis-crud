@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.riki.mybatis_crud.mapper.UserMapper">
+
+    <!-- Query untuk mendapatkan semua pengguna -->
+    <select id="getAllUsers" resultType="com.riki.mybatis_crud.model.User">
+        SELECT id, username, email FROM Users
+    </select>
+
+    <!-- Query untuk mendapatkan pengguna berdasarkan ID -->
+    <select id="getUserById" parameterType="int" resultType="com.riki.mybatis_crud.model.User">
+        SELECT id, username, email FROM Users WHERE id = #{id}
+    </select>
+
+    <!-- Query untuk menambahkan pengguna baru -->
+    <insert id="insertUser" parameterType="com.riki.mybatis_crud.model.User">
+        INSERT INTO Users (username, email) VALUES (#{username}, #{email})
+    </insert>
+
+    <!-- Query untuk memperbarui pengguna -->
+    <update id="updateUser" parameterType="com.riki.mybatis_crud.model.User">
+        UPDATE Users SET username = #{username}, email = #{email} WHERE id = #{id}
+    </update>
+
+    <!-- Query untuk menghapus pengguna -->
+    <delete id="deleteUser" parameterType="int">
+        DELETE FROM Users WHERE id = #{id}
+    </delete>
+
+</mapper>
