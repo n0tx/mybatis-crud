@@ -4,6 +4,7 @@
 
 
 - Java 17
+- Maven
 - Spring Starter Web
 - MyBatis
 - MySQL
